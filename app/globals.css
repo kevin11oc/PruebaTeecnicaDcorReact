@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --hoverText: #c89b3c;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,10 +19,64 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: url("../public/fondo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "BeaufortforLOL-Bold" !important;
+}
+
+.nav-link-hover:hover {
+  color: var(--hoverText);
+}
+
+.NavNot {
+  color: white;
+  cursor: pointer;
+}
+.NavNot:hover {
+  color: var(--hoverText);
+}
+.nav-link-hover {
+  color: white;
+  position: relative;
+}
+
+.nav-link-hover:hover::before,
+.nav-link-hover.active::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  border-style: dashed double;
+  border-width: 10px;
+  border-color: transparent transparent var(--hoverText) transparent;
+}
+
+.arrow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-style: dashed double;
+  border-width: 10px;
+  border-color: transparent transparent var(--hoverText) transparent;
+}
+
+.izq {
+  margin-left: 35px;
+}
+
+.der {
+  margin-left: 180px;
+}
+
+.iconGyL {
+  display: inline-block;
+}
+
+.iconGyL:hover {
+  transform: scale(1.1);
 }
